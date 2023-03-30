@@ -6,7 +6,7 @@ all: users rides companies
 
 users_server:
 	@echo "Generating users.proto for server"
-	./gen_server.sh users ../server/users/src/proto-gen/
+	./gen_server.sh users ../src/proto-gen/
 
 users_client:
 	@echo "Generating users.proto for client"
