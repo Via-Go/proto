@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package rides;
+package companies;
 
 option go_package = "github.com/wzslr321/road_runner/server/companies/src";
 

@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package users;
+package auth.v1;
 
 option go_package = "github.com/wzslr321/road_runner/server/users/src";
 
@@ -52,8 +52,9 @@ message LoginUserRequest {
 }
 
 message LoginUserResponse {
-  bool success = 1;
+  int32 code = 1;
   string message = 2;
+  string token = 3;
 }
 
 message UpdateUserRequest {
