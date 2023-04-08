@@ -60,7 +60,8 @@ message LoginUserRequest {
 message LoginUserResponse {
   bool success = 1;
   string message = 2;
-  UserDTO userDTO = 3;
+  string jwt_token = 3;
+  UserDTO userDTO = 4;
 }
 
 message UpdateUserRequest {
