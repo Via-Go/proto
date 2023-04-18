@@ -1,8 +1,9 @@
 syntax = "proto3";
 
-package users;
+package users.v1;
 
-option go_package = "github.com/wzslr321/road_runner/server/users/src";
+
+option go_package = "github.com/wzslr321/road_runner/server/users";
 
 service Users{
   rpc CreateUser(CreateUserRequest) returns (CreateUserResponse) {}
@@ -12,6 +13,11 @@ service Users{
 
   rpc LoginUser(LoginUserRequest) returns (LoginUserResponse) {}
   rpc LogoutUser(LogoutUserRequest) returns (LogoutUserResponse) {}
+}
+
+enum Status {
+  SUCCESS = 0;
+  ERROR = 1;
 }
 
 message UserDTO {
@@ -28,7 +34,7 @@ message GetUserResponse{
   string id = 1;
   string username = 2;
   string email = 3;
-  string code = 4;
+  Status status = 4;
   string message = 5;
 }
 
@@ -37,9 +43,10 @@ message DeleteUserRequest {
 }
 
 message DeleteUserResponse {
-  string code = 1;
+  Status status = 1;
   string message = 2;
 }
+
 
 message CreateUserRequest{
   string username = 1;
@@ -48,7 +55,7 @@ message CreateUserRequest{
 }
 
 message CreateUserResponse{
-  string code = 1;
+  Status status = 1;
   string message = 2;
 }
 
@@ -58,7 +65,7 @@ message LoginUserRequest {
 }
 
 message LoginUserResponse {
-  bool success = 1;
+  Status status = 1;
   string message = 2;
   string jwt_token = 3;
   string refresh_token = 4;
@@ -73,7 +80,7 @@ message UpdateUserRequest {
 }
 
 message UpdateUserResponse {
-  string code = 1;
+  Status status = 1;
   string message = 2;
 }
 
@@ -82,6 +89,6 @@ message LogoutUserRequest {
 }
 
 message LogoutUserResponse {
-  bool success = 1;
+  Status status = 1;
   string message = 2;
 }
