@@ -1,8 +1,9 @@
 syntax = "proto3";
 
-package users;
+package users.v1;
 
-option go_package = "github.com/wzslr321/road_runner/server/users/src";
+
+option go_package = "github.com/wzslr321/road_runner/server/users";
 
 service Users{
   rpc CreateUser(CreateUserRequest) returns (CreateUserResponse) {}
@@ -13,6 +14,7 @@ service Users{
   rpc LoginUser(LoginUserRequest) returns (LoginUserResponse) {}
   rpc LogoutUser(LogoutUserRequest) returns (LogoutUserResponse) {}
 }
+
 
 message UserDTO {
   string id = 1;
@@ -40,6 +42,7 @@ message DeleteUserResponse {
   string code = 1;
   string message = 2;
 }
+
 
 message CreateUserRequest{
   string username = 1;
